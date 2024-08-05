@@ -1,0 +1,28 @@
+.container {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+  height: 90vh;
+  width: 80vh;
+}
+
+.item {
+  border: 1px solid black;
+}
+
+.red {
+  grid-column: 1;
+  background-color: red;
+}
+
+.blue {
+  grid-column: 2;
+  background-color: blue;
+}
+
+.yellow {
+  grid-column: 1 / span 2;
+  background-color: yellow;
+}

@@ -1,0 +1,25 @@
+.container {
+  border: 3px red solid;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  align-items: center;
+}
+
+.item {
+  color: white;
+  background-color: aqua;
+  flex-grow: 1;
+  margin: 3px;
+}
+
+.top, .bottom{
+  width: 50%;
+}
+
+.middle {
+  width: 100%;
+}

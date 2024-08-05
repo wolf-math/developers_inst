@@ -1,0 +1,23 @@
+.container {
+  border: 3px red solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  align-items: flex-end;
+}
+
+.item {
+  color: white;
+  background-color: aqua;
+  flex-grow: 1;
+  margin: 3px
+}
+
+.top, .bottom{
+  width: 100%;
+}
+
+.middle {
+  width: 50%;
+}

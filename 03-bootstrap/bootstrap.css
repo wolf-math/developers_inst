@@ -1,0 +1,6 @@
+.sidebar {
+    border: 1px solid lightgrey;
+    background-color: lightgray;
+    border-radius:10px ;
+    /* height: 30%; */
+}
