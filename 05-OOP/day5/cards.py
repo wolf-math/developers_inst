@@ -31,3 +31,6 @@ a = Deck()
 a.shuffle()
 a.deal()
 a.show_deck()
+
+
+
