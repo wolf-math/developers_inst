@@ -1,0 +1,1 @@
+SELECT * FROM actors2 WHERE age > '1960-01-01' ORDER BY number_oscars ASC;
