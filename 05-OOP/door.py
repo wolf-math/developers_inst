@@ -30,32 +30,21 @@ of those functions, which simply raises an Error that a blocked door cannot be o
 # blocked.close_door()
 # blocked.open_door()
 
-class Book():
-    def __init__(self, title, author, publication_date, price):
-        self.title = title
-        self.author = author
-        self.publication = publication_date
-        self.price = price
 
-    def present(self):
-        print(f'Title: {self.title}')
+# my_list = [2,3,1,2,"four",42,1,5,3,"imanumber"]
 
-class Fiction(Book):
-    def __init__(self, title, author, publication_date, price, is_awesome):
-        super().__init__(title, author, publication_date, price)
-        self.genre = 'Fiction'
-        self.is_awesome = is_awesome
-        if self.is_awesome:
-            self.bored = False
-            print('Woow this is an awesome book')
-        else:
-            self.bored = True
-            print('I am very bored')
+# total = 0
+# for number in my_list:
+#     try:
+#         total += number
+#     except:
+#         continue
 
-if __name__ == '__main__':
-    foundation = Fiction('Asimov', 'Foundation', '1966', '5£', True)
-    foundation.present()
-    print(foundation.price)
-    print(foundation.bored)
-    boring_book = Fiction('boring_guy', 'boring_title', 'boring_date', '9000£', False)
-    print(boring_book.bored)
+# print(total)
+
+
+z = 9
+try:
+    assert 1 == z
+except AssertionError:
+    print("Error: Those are not equals")
