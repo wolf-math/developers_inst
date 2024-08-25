@@ -1,4 +1,5 @@
 import random
+from time import sleep
 
 rps = ['rock','paper','scissors']
 
@@ -17,7 +18,6 @@ class Game():
             else:
                 print("that wasn't an option")
         
-
     def get_computer_item(self):
         self.computer_item = random.choice(rps)
 
@@ -40,20 +40,13 @@ class Game():
 
 
     def play(self):
-        while True:
-            self.get_computer_item()
-            self.get_user_item()
-            self.get_game_reslt()
-
-            again = input("Play again? [y/n] ")
-            if again == 'n':
-                print(self.game_data)
-                break
-
-a = Game()
-a.play()
+        self.get_computer_item()
+        self.get_user_item()
+        print("")
+        print(f"Computer plays {self.computer_item}.\n")
+        self.get_game_reslt()
+        print("")
+        sleep(1)
 
 
-
-
-
+        

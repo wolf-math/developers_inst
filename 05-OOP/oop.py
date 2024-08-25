@@ -86,8 +86,6 @@ class Currency:
     def __str__(self):
         return f"{self.amount} {self.currency}"
     
-    def __int__(self):
-        return self.amount
     
     def __repr__(self):
         return f"{self.amount} {self.currency}"
@@ -102,16 +100,22 @@ class Currency:
 
     def __add__(self, other):
         try:
+            if self.currency != other.currency:
+                raise TypeError(f'Cannot add between Currency type {self.currency} and {other.currency}')
             return self.amount + other.amount
         except:
             return self.amount + other
+        
+    def __int__(self):
+        return self.amount
+    
 
 c1 = Currency('dollar', 5)
 c2 = Currency('dollar', 10)
 c3 = Currency('shekel', 1)
 c4 = Currency('shekel', 10)
 
-print(str(c1))
+print(c1)
 # '5 dollars'
 
 print(int(c1))
@@ -137,5 +141,5 @@ c1 += c2
 print(c1)
 # 20 dollars
 
-c1 + c3
+print(c1 + c3)
 # TypeError: Cannot add between Currency type <dollar> and <shekel>
