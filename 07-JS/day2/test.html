@@ -7,11 +7,24 @@
     <title>Modify Select Form</title>
 </head>
 <body> 
-    <p id ='text'>DOM Attributes! Yeahhh !!</p>  
-    <script>
-      // Modify the style of the paragraph text (such as fontSize, fontFamily, color, etc. )through javascript code.
-      let myPar = document.getElementById("text")
-      myPar.style.border = '1px solid black'
-    </script>
+<form id="myform">
+      <input type="text" name="name" value="John">
+      <input type="text" name="surname" value="Smith">
+      <input type="submit">
+</form>
+
+<script>
+    document.getElementById('myform').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Retrieve form data
+        let formData = new FormData(event.target);
+
+        // Iterate over form data and log each value
+        formData.forEach(function(value, key) {
+            console.log(`${key}: ${value}`);
+        });
+    });
+</script>
 </body> 
 </html> 
