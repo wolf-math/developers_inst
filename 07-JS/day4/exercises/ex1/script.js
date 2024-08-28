@@ -36,7 +36,32 @@ butt.addEventListener('click', () => {
   });
 });
 
-// BONUS : When you hover on the h1, set the font size to a random pixel size between 0 to 100.(Check out this documentation)
-Math.floor(Math.random() * 101);
+// BONUS : When you hover on the h1, set the font size to a random pixel size between 0 to 100.
+atchOne.addEventListener('mouseover', () => {
+  let textSize = Math.floor(Math.random() * 101);
+  atchOne.style.fontSize = `${textSize}px`;
+});
 
 // BONUS : When you hover on the 2nd paragraph, it should fade out (Check out “fade css animation” on Google)
+pee3 = document.querySelectorAll('p')[2];
+
+function addKeyframesAnimation() {
+  // Create a style element
+  const styleSheet = document.createElement('style');
+  styleSheet.type = 'text/css';
+
+  // Define keyframes animation
+  const keyframes = `
+@keyframes fadeOut {
+   0% {opacity: 1;}
+   100% {opacity: 0;} 
+} 
+`;
+
+  styleSheet.innerHTML = keyframes;
+  document.head.appendChild(styleSheet);
+  pee3.style.animation = 'fadeOut 3s linear';
+}
+pee3.addEventListener('mouseover', () => {
+  addKeyframesAnimation();
+});
