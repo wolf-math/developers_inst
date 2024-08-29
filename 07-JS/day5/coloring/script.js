@@ -6,22 +6,22 @@ let selectedColor = 'white';
 function createColorsPallette() {
   // 16 colors
   const colorPalette = [
-    '#FF0000', // Red
-    '#008000', // Green
-    '#0000FF', // Blue
-    '#FFFF00', // Yellow
-    '#00FFFF', // Cyan
-    '#FF00FF', // Magenta
-    '#FFA500', // Orange
-    '#800080', // Purple
-    '#00FF00', // Lime
-    '#FFC0CB', // Pink
-    '#008080', // Teal
-    '#000080', // Navy
-    '#800000', // Maroon
-    '#808080', // Gray
-    '#000000', // Black
-    '#FFFFFF' // White
+    '#FF0000',
+    '#008000',
+    '#0000FF',
+    '#FFFF00',
+    '#00FFFF',
+    '#FF00FF',
+    '#FFA500',
+    '#800080',
+    '#00FF00',
+    '#FFC0CB',
+    '#008080',
+    '#000080',
+    '#800000',
+    '#808080',
+    '#000000',
+    '#FFFFFF'
   ];
 
   // Get the table element
@@ -46,8 +46,8 @@ function createColorsPallette() {
 
 // make pixels table
 // todo: make it dynamic based on screen size
-function createPixels(x, y, id) {
-  let table = document.getElementById(id);
+function createPixels(x = 30, y = 30) {
+  let table = document.getElementById('pixels-table');
 
   for (let i = 0; i < y; i++) {
     newRow = table.insertRow(-1);
@@ -56,34 +56,30 @@ function createPixels(x, y, id) {
       cell.id = `pixel-${i}-${j}`;
       cell.className = 'pixel';
 
-      let isClicked = false;
-      let isHovered = false;
+      // let isClicked = false;
+
+      // cell.addEventListener('mousedown', () => {
+      //   console.log('MOUSEDOWN!');
+      //   isClicked = true;
+      // });
+
+      // cell.addEventListener('mouseup', () => {
+      //   isClicked = false;
+      // });
+
+      // cell.addEventListener('mouseenter', () => {
+      //   console.log(`${isClicked}`);
+      //   cell.style.backgroundColor = selectedColor;
+      //   if (isClicked) {
+      //     console.log(`onMouseenter with isClicked: ${isClicked}`);
+      //   }
+      // });
+
+      // cell.style.backgroundColor = selectedColor;
 
       cell.addEventListener('click', () => {
-        isClicked = true;
-        if (isClicked && isHovered) {
-          console.log('onClick: clicked and hovered');
-          cell.style.backgroundColor = selectedColor;
-        }
+        cell.style.backgroundColor = selectedColor;
       });
-
-      // Mouseover event listener
-      cell.addEventListener('mouseover', () => {
-        isHovered = true;
-        if (isClicked && isHovered) {
-          console.log('onMouseover: clicked and hovered');
-          cell.style.backgroundColor = selectedColor;
-        }
-      });
-
-      cell.addEventListener('mouseout', () => {
-        isHovered = false;
-        isClicked = false;
-      });
-
-      // cell.addEventListener('click', () => {
-      //   cell.style.backgroundColor = selectedColor;
-      // });
     }
   }
 }
@@ -97,4 +93,4 @@ clearButton.addEventListener('click', () => {
 });
 
 createColorsPallette();
-createPixels(25, 30, 'pixels-table');
+createPixels(50, 30);
