@@ -1,7 +1,5 @@
-// colors table and pixels table are similar.
-// can they be made with the same function?
-
 let selectedColor = 'white';
+let isClicked = false;
 
 function createColorsPallette() {
   // 16 colors
@@ -56,29 +54,22 @@ function createPixels(x = 30, y = 30) {
       cell.id = `pixel-${i}-${j}`;
       cell.className = 'pixel';
 
-      // let isClicked = false;
-
-      // cell.addEventListener('mousedown', () => {
-      //   console.log('MOUSEDOWN!');
-      //   isClicked = true;
-      // });
-
-      // cell.addEventListener('mouseup', () => {
-      //   isClicked = false;
-      // });
-
-      // cell.addEventListener('mouseenter', () => {
-      //   console.log(`${isClicked}`);
-      //   cell.style.backgroundColor = selectedColor;
-      //   if (isClicked) {
-      //     console.log(`onMouseenter with isClicked: ${isClicked}`);
-      //   }
-      // });
-
-      // cell.style.backgroundColor = selectedColor;
-
-      cell.addEventListener('click', () => {
+      cell.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        isClicked = true;
         cell.style.backgroundColor = selectedColor;
+      });
+
+      cell.addEventListener('mouseup', (e) => {
+        e.preventDefault();
+        isClicked = false;
+      });
+
+      cell.addEventListener('mouseenter', (e) => {
+        e.preventDefault();
+        if (isClicked) {
+          cell.style.backgroundColor = selectedColor;
+        }
       });
     }
   }
