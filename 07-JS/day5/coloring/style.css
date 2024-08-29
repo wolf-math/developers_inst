@@ -1,0 +1,32 @@
+#container {
+  display: flex;
+}
+
+#color-selector {
+  /* background-color: aqua; */
+  margin: 10px;
+  padding: 10px
+}
+
+#color-selector-table {
+
+}
+
+#pixels-table {
+  margin: 10px;
+  padding: 10px;
+  border-collapse: separate;
+  border-spacing: 0px;
+}
+
+.color{
+  width: 40px;
+  height: 40px;
+  /* background-color: blue; */
+}
+
+.pixel {
+  width: 20px;
+  height: 20px;
+  border: 1px dotted gray
+}
