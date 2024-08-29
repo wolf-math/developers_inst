@@ -3,13 +3,8 @@
 }
 
 #color-selector {
-  /* background-color: aqua; */
   margin: 10px;
   padding: 10px
-}
-
-#color-selector-table {
-
 }
 
 #pixels-table {
@@ -22,7 +17,6 @@
 .color{
   width: 40px;
   height: 40px;
-  /* background-color: blue; */
 }
 
 .pixel {
