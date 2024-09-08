@@ -7,14 +7,7 @@
 #   c. write a function to update data
 #   d. write a function to read data (all data/ single student)
 #   e. write a function to delete data
-
 #   f. write a "main" function to run these operations
-
-# first name
-# last name
-# birthdate
-# tz
-# favorite_color
 
 import sqlite3
 from tabulate import tabulate
@@ -32,7 +25,8 @@ def query_db(query):
         print(e)
 
 def create_table():
-    create_student_table = """CREATE TABLE IF NOT EXISTS student (
+    # I should have made it `student_id` instead of `id`
+    query = """CREATE TABLE IF NOT EXISTS student (
                 id INTEGER PRIMARY KEY, 
                 first_name varchar(50) NOT NULL, 
                 last_name varchar(50) NOT NULL, 
@@ -42,10 +36,10 @@ def create_table():
         );
         """
     
-    result = query_db(create_student_table)
+    result = query_db(query)
     return result
     
-def insert_data():
+def insert_student():
     # student_info = {first_name, last_name, birthdate, tz, favorite_color}
     first_name = input('first name: ')
     last_name = input('last name: ')
@@ -53,32 +47,57 @@ def insert_data():
     tz = input('tz: ')
     favorite_color = input('favorite color: ')
 
-    student_info = {
-        "first_name": first_name, 
-        "last_name": last_name, 
-        "birthdate": birthdate, 
-        "tz": tz, 
-        "favorite_color": favorite_color
-        }
-
-    insert_student_data = f"""
+    query = f"""
         INSERT INTO student (first_name, last_name, birthdate, tz, favorite_color)
         VALUES (
-            '{student_info['first_name']}',
-            '{student_info['last_name']}',
-            '{student_info['birthdate']}',
-            {student_info['tz']},
-            '{student_info['favorite_color']}'
+            '{first_name}',
+            '{last_name}',
+            '{birthdate}',
+            {tz},
+            '{favorite_color}'
         );
     """
 
-    result = query_db(insert_student_data)
+    result = query_db(query)
     return result
 
 def view_all_students():
-    view_students = "SELECT * FROM student;"
+    query = "SELECT * FROM student;"
 
-    result = query_db(view_students)
+    result = query_db(query)
+    return result
+
+def view_student(id):
+    query = f"SELECT * FROM student WHERE id={id};"
+
+    result = query_db(query)
+    return result
+
+def delete_student(id):
+    query = f"DELETE FROM student WHERE id={id} RETUNING *"
+    result = query_db(query)
+    return result
+
+
+def update_student(id):
+    student = view_student(id)[0]
+    first_name = input(f'first name: [default {student[1]}] ')
+    last_name = input(f'last name: [default {student[2]}] ')
+    birthdate = input(f'birthdate: [default {student[3]}] ')
+    tz = input(f'tz: [default {student[4]}] ')
+    favorite_color = input(f'favorite color: [default {student[5]}] ')
+
+    query = f"""
+        UPDATE student SET
+            first_name = '{first_name if first_name != '' else student[1]}',
+            last_name = '{last_name if last_name != '' else student[2]}',
+            birthdate = '{birthdate if birthdate != '' else student[3]}',
+            tz = {tz if tz != '' else student[4]},
+            favorite_color = '{favorite_color if favorite_color != '' else student[5]}'
+        WHERE id = {id};
+    """
+
+    result = query_db(query)
     return result
 
 def main():
@@ -89,19 +108,46 @@ def main():
         choice = input("""
         1. Get all student data
         2. insert student data
-        3. exit
+        3. Get specific student data
+        4. Delete a student
+        5. Update a student
+        6. Exit
     """)
         
         if choice == "1":
             student_list = view_all_students()
-            print(tabulate(student_list, headers=["first_name", "last_name", "birthdate", "tz", "favorite_color"]))
-
+            print(tabulate(student_list, headers=["id", "first_name", "last_name", "birthdate", "tz", "favorite_color"]))
+            print('\n')
         elif choice == "2":
-            insert_data()
+            insert_student()
             print("data inserted successfully")
+        elif choice == "3":
+            stud_id = input("Choose student id: ")
+            student = view_student(stud_id)
+            print(tabulate(student, headers=["id", "first_name", "last_name", "birthdate", "tz", "favorite_color"]))
+        elif choice == "4":
+            stud_id = input("Choose student id: ")
+            print("Are you sure you want to delete this student?")
+            print(view_student(stud_id))
+            yes_no = input("y/N")
+            if yes_no == "y" or "yes":
+                delete_student(stud_id)
+        elif choice == "5":
+            stud_id = input("Choose student id: ")
+            update_student(stud_id)
+            student = view_student(stud_id)
+            print(tabulate(student, headers=["id", "first_name", "last_name", "birthdate", "tz", "favorite_color"]))
         else:
             break
+        input()
 
         
 if __name__ == "__main__":
     main()
+
+
+# Things I changed since class:
+# 1. all queries called `query`
+# 2. changed insert_data to insert_student
+# 3. deleted the student dictionary
+# 4. one-line if-statements
