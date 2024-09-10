@@ -36,7 +36,7 @@ class Game():
         else:
             print(f"Player: {self.user_input}, Computer: {rps[computer_choice]}.")
             print("COMPUTER WINS!")
-            self.game_data.append('loss')
+            self.game_data.append('loss') 
 
 
     def play(self):
