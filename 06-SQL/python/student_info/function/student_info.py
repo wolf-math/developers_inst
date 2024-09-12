@@ -36,9 +36,9 @@ def create_table():
         );
         """
     
-    result = query_db(query)
-    return result
+    query_db(query)
     
+
 def insert_student():
     # student_info = {first_name, last_name, birthdate, tz, favorite_color}
     first_name = input('first name: ')
@@ -58,8 +58,8 @@ def insert_student():
         );
     """
 
-    result = query_db(query)
-    return result
+    query_db(query)
+
 
 def view_all_students():
     query = "SELECT * FROM student;"
@@ -67,16 +67,17 @@ def view_all_students():
     result = query_db(query)
     return result
 
+
 def view_student(id):
     query = f"SELECT * FROM student WHERE id={id};"
 
     result = query_db(query)
     return result
 
+
 def delete_student(id):
-    query = f"DELETE FROM student WHERE id={id} RETUNING *"
-    result = query_db(query)
-    return result
+    query = f"DELETE FROM student WHERE id={id}"
+    query_db(query)
 
 
 def update_student(id):
@@ -97,8 +98,8 @@ def update_student(id):
         WHERE id = {id};
     """
 
-    result = query_db(query)
-    return result
+    query_db(query)
+
 
 def main():
     create_table()
