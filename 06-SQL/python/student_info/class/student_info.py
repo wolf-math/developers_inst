@@ -1,4 +1,5 @@
 import sqlite3
+
 class Student:
     def __init__(self):
         self.query_descriptions = []

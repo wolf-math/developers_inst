@@ -17,7 +17,7 @@ def get_user_menu_choice():
 def main():
     student = Student()
     student.create_table()
-    
+
     while True:
         choice = get_user_menu_choice()
         if choice == "1":
@@ -31,8 +31,8 @@ def main():
 
         elif choice == "3":
             stud_id = input("Choose student id: ")
-            student = student.view_student(stud_id)
-            print(tabulate(student, headers=["id", "first_name", "last_name", "birthdate", "tz", "favorite_color"]))
+            student_info = student.view_student(stud_id)
+            print(tabulate(student_info, headers=["id", "first_name", "last_name", "birthdate", "tz", "favorite_color"]))
 
         elif choice == "4":
             stud_id = input("Choose student id: ")
@@ -45,8 +45,8 @@ def main():
         elif choice == "5":
             stud_id = input("Choose student id: ")
             student.update_student(stud_id)
-            student = student.view_student(stud_id)
-            print(tabulate(student, headers=["id", "first_name", "last_name", "birthdate", "tz", "favorite_color"]))
+            student_info = student.view_student(stud_id)
+            print(tabulate(student_info, headers=["id", "first_name", "last_name", "birthdate", "tz", "favorite_color"]))
 
         else:
             break
