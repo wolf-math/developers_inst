@@ -6,11 +6,11 @@
 
 // Accessing div
 
-const divNode1 = document.body.firstElementChild;
-const divNode2 = document.body.children[0];
+const divDomNode1 = document.body.firstElementChild;
+const divDomNode2 = document.body.children[0];
 
-console.log(divNode1 == divNode2);
-console.log(divNode1);
+console.log(divDomNode1 == divDomNode2);
+console.log(divDomNode1);
 
 // Accessing ul
 
@@ -24,3 +24,6 @@ console.log(ulNode1);
 
 const liNode1 = document.body.children[1].lastElementChild;
 const liNode2 = document.body.children[1].children[1];
+
+// document.getElementsByTagName('div')[0].innerHTML = '<h1>Hello World!</h1>';
+// document.getElementById('header').textContent = '<h1>Hello World!</h1>';

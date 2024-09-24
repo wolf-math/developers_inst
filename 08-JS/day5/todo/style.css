@@ -1,0 +1,19 @@
+.lineItem {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.lineItem-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.check {
+  margin-right: 10px
+}
+
+input:checked {
+  
+}

@@ -1,7 +1,7 @@
-const styleButton = document.getElementById('jsstyle');
+let styleButton = document.getElementById('jsstyle');
 
 // anonymous callback
-styleButton.addEventListener('mouseover', function () {
+styleButton.addEventListener('mouseover', () => {
   styleButton.style.backgroundColor = 'lightblue';
   styleButton.style.color = 'white';
   styleButton.style.border = '2px solid darkblue';
@@ -15,6 +15,8 @@ styleButton.addEventListener('mouseout', function () {
 });
 
 // named callback
+styleButton.addEventListener('click', clickFunction);
+
 function clickFunction() {
   styleButton.style.backgroundColor = 'green';
   styleButton.style.color = 'white';
@@ -24,5 +26,3 @@ function clickFunction() {
   console.log('WHY DID YOU PRESS IT???');
   console.log('OH THE HUMANITY!!!');
 }
-
-styleButton.addEventListener('click', clickFunction);

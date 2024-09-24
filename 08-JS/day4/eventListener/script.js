@@ -16,6 +16,7 @@ styleButton.addEventListener('mouseout', function () {
   styleButton.style.backgroundColor = '';
   styleButton.style.color = '';
   styleButton.style.border = '';
+  styleButton.textContent = 'Style';
 });
 
 styleButton.addEventListener('click', function (e) {

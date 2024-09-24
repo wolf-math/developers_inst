@@ -2,10 +2,11 @@ function getvalue(event) {
   // Prevent the form from submitting and refreshing the page
   event.preventDefault();
 
-  const form = document.getElementById('form1');
+  let form = document.forms[0];
+  // let form = document.getElementById('form1');
 
-  const firstName = form.elements['fname'].value;
-  const lastName = form.elements['lname'].value;
+  let firstName = form.elements['fname'].value;
+  let lastName = form.elements['lname'].value;
 
   // Display the values
   alert('First Name: ' + firstName + '\nLast Name: ' + lastName);
