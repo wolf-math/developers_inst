@@ -1,0 +1,16 @@
+{
+  "name": "slug",
+  "version": "1.0.0",
+  "description": "a slug",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.7",
+    "slugify": "^1.6.6"
+  }
+}
